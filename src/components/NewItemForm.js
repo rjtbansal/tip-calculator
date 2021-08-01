@@ -1,6 +1,7 @@
 import { Box, Button, Input, Label } from '@twilio-paste/core';
 import { useState } from 'react';
 
+//onSubmit is received from mapDispatchToProps from enclosed NewItemFormContainer component
 export const NewItemForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
