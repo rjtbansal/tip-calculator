@@ -1,6 +1,6 @@
-import { removeItem } from "../store/items/actions";
-import { connect } from "react-redux";
-import MenuItem from "../components/MenuItem";
+import { removeItem, updatePrice } from '../store/items/actions';
+import { connect } from 'react-redux';
+import MenuItem from '../components/MenuItem';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   //ownProps are the props that are received from the MenuItemsContainer
@@ -8,7 +8,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   console.log('ownProps, ', ownProps);
   return {
     remove: () => dispatch(removeItem(ownProps.uuid)),
-  }
-}
+    updatePrice: (price) => dispatch(updatePrice(ownProps.uuid, price))
+  };
+};
 
 export const MenuItemContainer = connect(null, mapDispatchToProps)(MenuItem);
