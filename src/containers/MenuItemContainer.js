@@ -1,4 +1,8 @@
-import { removeItem, updatePrice } from '../store/items/actions';
+import {
+  removeItem,
+  updatePrice,
+  updateQuantity
+} from '../store/items/actions';
 import { connect } from 'react-redux';
 import MenuItem from '../components/MenuItem';
 
@@ -8,7 +12,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   console.log('ownProps, ', ownProps);
   return {
     remove: () => dispatch(removeItem(ownProps.uuid)),
-    updatePrice: (price) => dispatch(updatePrice(ownProps.uuid, price))
+    updatePrice: (price) => dispatch(updatePrice(ownProps.uuid, price)),
+    updateQuantity: (quantity) =>
+      dispatch(updateQuantity(ownProps.uuid, quantity))
   };
 };
 
