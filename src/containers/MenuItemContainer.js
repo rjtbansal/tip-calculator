@@ -5,6 +5,11 @@ import {
 } from '../store/items/actions';
 import { connect } from 'react-redux';
 import MenuItem from '../components/MenuItem';
+import { selectItemTotal } from '../store/items/selectors';
+
+const mapStateToProps = (state, ownProps) => ({
+  total: selectItemTotal(state, ownProps)
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   //ownProps are the props that are received from the MenuItemsContainer
@@ -18,4 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export const MenuItemContainer = connect(null, mapDispatchToProps)(MenuItem);
+export const MenuItemContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MenuItem);
